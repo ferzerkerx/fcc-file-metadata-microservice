@@ -1,0 +1,27 @@
+{
+  "name": "fcc-file-metadata-microservice",
+  "version": "0.0.1",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferzerkerx/fcc-file-metadata-microservice"
+  },
+  "homepage": "https://github.com/ferzerkerx/fcc-file-metadata-microservice",
+  "bugs": "https://github.com/ferzerkerx/fcc-file-metadata-microservice/issues",
+  "keywords": [
+    "Express",
+    "Node",
+    "javascript",
+    "FreeCodeCamp"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Fernando Montes",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "express": "^4.12.4",
+    "multer": "^1.1.0"
+  }
+}
