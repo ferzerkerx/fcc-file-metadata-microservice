@@ -9,6 +9,6 @@ var FileAnalyzerService = require(path + '/app/services/FileAnalyzerService.js')
 module.exports = function (app) {
     var fileAnalyzerService = new FileAnalyzerService();
 
-    app.post('/api/fileanalyse/', upload.single('targetFile'), fileAnalyzerService.analyze);
+    app.post('/api/fileanalyse/', upload.single('someFile'), fileAnalyzerService.analyze);
 
 };
