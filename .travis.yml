@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "lts/*"
+
+addons:
+  sonarcloud:
+    organization: "ferzerkerx-github"
+    token:
+      secure: "ngA/7R6txMYNEG3yqxGmIWupNZ5e66PwZ1F/VrU3jwH9tcfdx855rKe52+RIJTGRWxyYnlHSUMewWdQwpo51yP1He2midwXCnKVb0wzQ0Lo7FnMoW9DZN2c+Xd9c7kLozGi2aCrysJiCj33yFY0x2E8rmOZHjKWEDWIlF1SBw2jmNw9JsUOR3QucUzesze+DPdeDDTiJZHuXt+HPMXW8KiL2JLdWqsaRrDfIwGPI0t6T2IYgVUEorfsm6fXwaj1qaQSM5BVxfp2kFupEpaGNfyq48JeMCa4E8w8eMxiQlJAhPbvllQtczSFFjegaZiARAVJFxyY3upCuiAQ/RbV37wE2sH5p6hTdUWRWIbY+j+ylkRD7S2Iq3+K6F8S57ebR0B1WDe0GM8x9Ke44Dlq8903PSRFkf5Api+JY++6RpQIDrcZre93h1KcYHrDFGLV1XHCKtHTickpMhaphkJOZpAO/ZAc2wq2OMxOJwVJQb1xpTJDyFK3jW6VBp+D9Hkl3R7HJqhBWvG7vQZnRb6x9KMRX/mmREPNWsq4K6CJubtEQWFJLIWqu0z+hbZUIf8MaQwNgd6Bi22cGI+Vuf1ujzX4ObABKff+KjHf9Ix6LcBlDnwCPaN3Oy39hFSqs0p6O+W8ne4IYUkHqGdZhTRWDjxx/FK3X1iofMhvwDMNjPYs="
+env:
+  secure: "ruo+MN55cy90cCKIb2U0W8pmJY1ozwfmJgRL7Irsud4Q/+AmwT5LP/hRJf96Fk5uV9I9bGnl7+MrWGchS4owZbmpvzQaUxvtXU+4P6Xmd13o8Qp3joDB8sAuDy8Bd7t/uHfbMJokSWuPpXjYtIg6qyaL5yXUJoZ9Z4ZyG2LoiZgIuJtNxgDJDQnUzsNV6x0sceboHeT3Yp1wNGVNZAXJ9czawq1BdGGJYb/kiQh466uXfQSzIb/0zX6JTK/yHUskEsr0hHQepASPgWRFYcR2qlxmgYCPjzH3nUlPztgSi8FmpJj+yE/hhhewBZF9+gtlzIJpE9aQwJtba83YMZ+x2wYhXxguO7MeMCez7wdS08lkilfRw6Q6JNOQx5nGEi1nlmXn9NmsGTZ9kFera/u4OyZY4z4KGHW5UlstriLcKDe1TQlA8b7cSaKTX53pJ/69zmtZK6jzlRVIveyuGyzMsqaZ0Eqw1PcHiW/K7CzT6smiZ7jfwcYhhXf8WFvsjq888l/QgBOEj0jVskgta9u7HD5n+RShrCx1raPgBnE5uW8nKPturgnosYq4MXzUMYAnevhvnnCgSYReQDoZDZCK8OMJ+Do4H23Xf6KE1ZH+Q3Jto7e0eX8q5CjWjyBOhfbGYrs5ao6oWSVqAFof3YD43otoPLqCQpttclwWNiXVkXI="
+cache:
+  directories:
+    - "node_modules"
+
+install:
+  - "npm install"
+  - "npm install -g snyk"
+
+script:
+  - "sonar-scanner"
+  - "snyk test"
+
+after_success:
+  - snyk monitor
