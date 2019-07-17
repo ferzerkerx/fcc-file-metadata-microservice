@@ -5,7 +5,7 @@ var routes = require('./app/routes/api.js');
 var routesIndex = require('./app/routes/index.js');
 
 var app = express();
-require('dotenv').load();
+require('dotenv').config();
 
 app.use('/public', express.static('./app/public'));
 routes(app);
